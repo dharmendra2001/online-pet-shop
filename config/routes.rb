@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'petshops/index'
+  get 'petshops/show'
   get 'pets/index'
   get 'pets/show'
   root 'home#index'
@@ -9,4 +11,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :home
+  resources :pets 
+  resources :petshops
 end
