@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_30_180254) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_04_153332) do
+  create_table "pets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "petname"
+    t.string "food"
+    t.integer "weight"
+    t.integer "height"
+    t.integer "age"
+    t.string "description"
+    t.string "precaution"
+    t.string "image"
+    t.string "medical"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

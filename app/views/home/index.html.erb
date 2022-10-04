@@ -1,6 +1,14 @@
-<% if user_signed_in? %>
-    <h1>Home#index</h1>
-    <p>Find me in app/views/home/index.html.erb</p>
-<% end %>
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+<% if user_signed_in? && current_user.role.upcase == "ADMIN"%>
+  <% @users.each do |i|%>
+    <%= link_to i.name %>
+    <%= link_to "Add shop owner"%><br>
+  <%end%>
+<%end%>
+<%= "sign up with shop"%>
+<%= link_to "create shop"%>
+
+
 
 
