@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_04_153332) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_04_183018) do
   create_table "pets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "petname"
     t.string "food"
@@ -21,8 +21,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_04_153332) do
     t.string "precaution"
     t.string "image"
     t.string "medical"
+    t.bigint "petshop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["petshop_id"], name: "index_pets_on_petshop_id"
+  end
+
+  create_table "petshops", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "shopname"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_petshops_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

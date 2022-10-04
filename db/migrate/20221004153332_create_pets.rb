@@ -10,6 +10,7 @@ class CreatePets < ActiveRecord::Migration[7.0]
       t.string :precaution
       t.string :image
       t.string :medical
+      t.belongs_to :petshop
       t.timestamps
     end
   end
