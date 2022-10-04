@@ -1,13 +1,12 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
 <% if user_signed_in? && current_user.role.upcase == "ADMIN"%>
+  <h1>User List</h1>
   <% @users.each do |i|%>
-    <%= link_to i.name %>
-    <%= link_to "Add shop owner"%><br>
+    <%= i.name%>
+    <%= link_to "Show", home_path(i)%>
+    <%= link_to "create shop"%><br>
   <%end%>
+  <%= link_to "Add pet"%>
 <%end%>
-<%= "sign up with shop"%>
-<%= link_to "create shop"%>
 
 
 

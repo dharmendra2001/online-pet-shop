@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pets/index'
+  get 'pets/show'
   root 'home#index'
   
   devise_for :users, controllers: {
@@ -6,4 +8,5 @@ Rails.application.routes.draw do
     password: 'users/password',
     registrations: 'users/registrations'
   }
+  resources :home
 end
