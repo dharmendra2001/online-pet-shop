@@ -1,13 +1,33 @@
-<% if user_signed_in? && current_user.role.upcase == "ADMIN"%>
-  <h1>User List</h1>
-  <% @users.each do |i|%>
-    <%= i.name%>
-    <%= link_to "Show", home_path(i)%>
-    <%= link_to "create shop"%><br>
+<%= flash[:note]%>
+<% if user_signed_in?%>
+  <% if current_user.role.upcase == "ADMIN"%>
+    <table class="table table-striped table-hover w-50">
+      <thead class="table-dark">
+        <tr class="header">
+          <th>Name</th>
+          <th>Role</th>
+          <th>Shop name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |i| %>
+          <tr>
+            <td><%= i.name%></td>
+            <td><%= i.role%></td>
+            <td><%= i.petshop&.shopname%></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  <%elsif%>
+    <% if current_user.role.upcase == "OWNER"%>
+      <h1>welcome owner <%= current_user.name%></h1><br>
+      <%= current_user.petshop.shopname%>
+      <%= link_to "Add pet", new_pet_path%>
+    <%end%>
+  <%else%>
+    <h1>your are normal user</h1>
   <%end%>
-  <%= link_to "Add pet"%>
+<%else%>
+    <h1>your are user and your are not signed in</h1>
 <%end%>
-
-
-
-

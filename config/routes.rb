@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'petshops/index'
-  get 'petshops/show'
-  get 'pets/index'
-  get 'pets/show'
   root 'home#index'
   
   devise_for :users, controllers: {
@@ -11,6 +7,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :home
-  resources :pets 
-  resources :petshops
+  resources :pets, except: %i[create]
+  resources :petshops, except: %i[create]
+  post '/petshops/new', to: 'petshops#create'
+  post '/pets/new', to: 'pets#create'
 end
