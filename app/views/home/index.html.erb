@@ -1,28 +1,14 @@
 <%= flash[:note]%>
 <% if user_signed_in?%>
   <% if current_user.role.upcase == "ADMIN"%>
-    <table class="table table-striped table-hover w-50">
-      <thead class="table-dark">
-        <tr class="header">
-          <th>Name</th>
-          <th>Role</th>
-          <th>Shop name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |i| %>
-          <tr>
-            <td><%= i.name%></td>
-            <td><%= i.role%></td>
-            <td><%= i.petshop&.shopname%></td>
-          </tr>
-        <%end%>
-      </tbody>
-    </table>
+    <%= render "home/users", locals: {current_user: @current_user}%>
+    <%= render "home/pets", locals: {current_user: @current_user}%>
+    <%= link_to "Add pet", new_pet_path%>
   <%elsif%>
     <% if current_user.role.upcase == "OWNER"%>
-      <h1>welcome owner <%= current_user.name%></h1><br>
-      <%= current_user.petshop.shopname%>
+      <h1>welcome owner <%= current_user.name%></h1>
+      <h2>Shop name: <%= current_user.petshop.shopname%></h2>
+      <%= render "home/pets", locals: {current_user: @current_user}%>
       <%= link_to "Add pet", new_pet_path%>
     <%end%>
   <%else%>
