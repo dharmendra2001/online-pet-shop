@@ -6,6 +6,7 @@
       <th>Pet Name</th>
       <th>Food</th>
       <th>Weight</th>
+      <th>Image</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,9 @@
         <td><%= i.petname%></td>
         <td><%= i.food%></td>
         <td><%= i.weight%></td>
+        <%if i.image.attached?%>
+        <td><%=image_tag i.image, style: "width: 20px; display: block;"%></td>
+        <%end%>
       </tr>
     <%end%>
   </tbody>

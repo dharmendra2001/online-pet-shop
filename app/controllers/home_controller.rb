@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   def index
     @users = User.all
+    @shop = Petshop.all
+
   end
 
   def show 

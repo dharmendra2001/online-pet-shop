@@ -8,11 +8,7 @@ class PetshopsController < ApplicationController
   end
 
   def new
-
-  end
-
-  def show 
-    # @shop = Petshop.all
+    
   end
 
   def create

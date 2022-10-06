@@ -1,2 +1,8 @@
-<h1>Pets#show</h1>
-<p>Find me in app/views/pets/show.html.erb</p>
+<div>
+  <%=image_tag @pet.image, style: "width: 200px; display: block;"%>
+  Name:<%=link_to @pet.petname%><br>
+  Food:<%= link_to @pet.food%><br>
+  Height:<%= link_to @pet.height%><br>
+  Weight:<%= link_to @pet.weight%><br>
+  Age:<%= link_to @pet.age%>
+</div>
