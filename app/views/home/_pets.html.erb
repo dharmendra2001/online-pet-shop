@@ -7,6 +7,7 @@
       <th>Food</th>
       <th>Weight</th>
       <th>Image</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,9 @@
         <%if i.image.attached?%>
         <td><%=image_tag i.image, style: "width: 20px; display: block;"%></td>
         <%end%>
+        <td>
+          <%= link_to "Delete",pet_path(i.id), data: {turbo_method: :delete ,turbo_confirm: "are you sure"}%>
+        </td>
       </tr>
     <%end%>
   </tbody>

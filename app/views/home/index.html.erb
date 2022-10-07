@@ -15,8 +15,8 @@
     <%end%>
   <%else%>
     <h1>your are normal user</h1>
+    <%= render "petshops/allpets", locals: {shop: @shop}%>
   <%end%>
 <%else%>
-  <h1>user</h1>
   <%= render "petshops/allpets", locals: {shop: @shop}%>
 <%end%>

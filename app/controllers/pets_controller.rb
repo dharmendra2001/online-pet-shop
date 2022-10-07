@@ -18,6 +18,12 @@ class PetsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @pet = Pet.find(params[:id])
+    @pet.destroy
+    redirect_to root_path
+  end
+
   private 
   def pet_params 
     params.permit(:petname, :food, :weight, :height, :age, :description, :precaution, :medical, :image)
