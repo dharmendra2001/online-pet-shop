@@ -15,7 +15,7 @@
 
   <body>
     <header>
-      <%= render "shared/header" %>
+      <%= render partial: "shared/header", locals: {q: @q} %>
     </header>
     
     <div class = "container">

@@ -34,6 +34,19 @@
       </ul>
 
     </div>
+    <%if current_page?(petshops_path) || current_page?(root_path)%>
+      <%= search_form_for(q, url: {controller:'petshops', action: 'index'}, method: :get) do |form|%>
+        <div class="collapse navbar-collapse">
+          <div class="navbar-nav me-auto mb-3 mb-lg-0">
+            <div class="nav-item">
+              <%= form.label :petname%>
+              <%= form.text_field :petname_cont%>
+              <%= form.submit%>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
   </div>
 </div>
 </nav>

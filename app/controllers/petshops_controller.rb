@@ -1,6 +1,8 @@
 class PetshopsController < ApplicationController
   def index
     @shop = Petshop.all
+    @q = Pet.ransack(params[:q])
+    @pet = @q.result(distinct: true)
   end
 
   def show

@@ -77,3 +77,5 @@ end
 gem "font-awesome-sass", "~> 6.2"
 
 gem "image_processing", "~> 1.12"
+
+gem 'ransack'

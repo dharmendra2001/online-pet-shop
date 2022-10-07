@@ -1,8 +1,7 @@
 
-<% @shop&.each do |i|%>
-  <% i.pets.each do |p|%>
-    <%=image_tag p.image, style: "width: 200px; display: block;"%>
-    Name: <%=link_to p.petname, pet_path(p.id)%>
-    <%= button_to "Buy"%><hr>
-  <%end%>
+<% @pet&.each do |p|%>
+  <%=image_tag p.image, style: "width: 200px; display: block;" if p.image.attached?%>
+  Name: <%=link_to p.petname, pet_path(p.id)%>
+  <%= button_to "Buy"%><hr>
 <%end%>
+
