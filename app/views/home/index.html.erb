@@ -8,13 +8,12 @@
   <%elsif%>
     <% if current_user.role.upcase == "OWNER"%>
       <h1>welcome owner <%= current_user.name%></h1>
-      <h2>Shop name: <%= current_user.petshop.shopname%></h2>
+      <h2>Shop name: <%= current_user.petshop&.shopname%></h2>
       <%= render "home/pets", locals: {current_user: @current_user}%>
       <%= link_to "Add pet", new_pet_path%><br>
       <%= link_to "Shop now", petshops_path%>
     <%end%>
   <%else%>
-    <h1>your are normal user</h1>
     <%= render "petshops/allpets", locals: {shop: @shop}%>
   <%end%>
 <%else%>

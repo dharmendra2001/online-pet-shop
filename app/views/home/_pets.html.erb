@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% current_user.petshop.pets.each do |i| %>
+    <% current_user.petshop&.pets&.each do |i| %>
       <tr>
         <td><%= i.petname%></td>
         <td><%= i.food%></td>
