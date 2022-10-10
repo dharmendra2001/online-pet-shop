@@ -82,3 +82,4 @@ gem "image_processing", "~> 1.12"
 gem 'ransack'
 
 gem 'cancancan'
+gem 'stripe'
