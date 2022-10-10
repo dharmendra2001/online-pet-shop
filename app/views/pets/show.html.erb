@@ -5,6 +5,6 @@
   Height: <%= link_to @pet.height%><br>
   Weight: <%= link_to @pet.weight%><br>
   Age: <%= link_to @pet.age%><br>
-  Owner: <%= @pet.petshop.user.name%>
-  <%= button_to "Buy"%><hr>
+  Owner: <%= @pet.petshop.user.name%><br>
+  <%= link_to "Buy", payment_path, class: "btn btn-success"%><hr>
 </div>
