@@ -13,4 +13,8 @@ class User < ApplicationRecord
       role == i
     end
   end
+
+  def change_user_to_paid
+    update(membership: 1)
+  end
 end

@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resources :petshops, except: %i[create]
   post '/petshops/new', to: 'petshops#create'
   post '/pets/new', to: 'pets#create'
+  get 'payment', to: "home#payment", as: "payment"
+  post 'charge', to: "home#charge", as: "charge"
+
 end
