@@ -8,11 +8,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link active px-3 mx-5"%>
+          <%= link_to "HOME", root_path, class: "nav-link active px-3 mx-5"%>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Action
+            ACTION
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <% if user_signed_in? %>
@@ -26,10 +26,10 @@
         <% if user_signed_in?%>
           <% if current_user.role.upcase == 'ADMIN' || current_user.role.upcase == 'OWNER'%>
             <li class="nav-item">
-              <%= link_to "create shop", petshops_new_path, class: "nav-link active btn btn-danger px-3 mx-5"%>
+              <%= link_to "CREATE SHOP", petshops_new_path, class: "nav-link active btn btn-info btn-sm px-3 mx-5"%>
             </li>
           <%end%>
-          <%= button_to current_user.name%>  
+          <%= button_to current_user.name.upcase%>  
         <%end%>
       </ul>
 
@@ -40,7 +40,7 @@
           <div class="navbar-nav me-auto mb-3 mb-lg-0">
             <div class="nav-item">
               <%= form.label :petname%>
-              <%= form.text_field :petname_cont%>
+              <%= form.text_field :petname_cont, placeholder: "SEARCH HERE"%>
               <%= form.submit%>
             </div>
           </div>
