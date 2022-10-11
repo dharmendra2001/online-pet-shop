@@ -25,7 +25,8 @@ class PetshopsController < ApplicationController
     if @shop.save 
       redirect_to root_path
     else
-      redirect_to root_path
+      flash[:notice] = "something went wrong"
+      redirect_to new_petshop_path
     end
   end
 

@@ -3,15 +3,15 @@
   <% if current_user.role.upcase == "ADMIN"%>
     <%= render "home/users", locals: {current_user: @current_user}%>
     <%= render "home/pets", locals: {current_user: @current_user}%>
-    <%= link_to "Add pet", new_pet_path%><br>
-    <%= link_to "Shop now", petshops_path%>
+    <%= link_to "Add pet", new_pet_path, class: "btn btn-success"%>
+    <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
   <%elsif%>
     <% if current_user.role.upcase == "OWNER"%>
       <h1>welcome owner <%= current_user.name%></h1>
       <h2>Shop name: <%= current_user.petshop&.shopname%></h2>
       <%= render "home/pets", locals: {current_user: @current_user}%>
-      <%= link_to "Add pet", new_pet_path%><br>
-      <%= link_to "Shop now", petshops_path%>
+      <%= link_to "Add pet", new_pet_path, class: "btn btn-success"%>
+      <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
     <%end%>
   <%else%>
     <%= render "petshops/allpets", locals: {shop: @shop}%>

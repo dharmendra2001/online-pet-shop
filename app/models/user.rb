@@ -6,14 +6,6 @@ class User < ApplicationRecord
   
   has_one :petshop
 
-  ROLES = %w{admin owner client }
-
-  ROLES.each do |i|
-    define_method "#{i}?" do
-      role == i
-    end
-  end
-
   def change_user_to_paid
     update(membership: 1)
   end
