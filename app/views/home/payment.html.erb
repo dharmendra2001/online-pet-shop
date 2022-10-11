@@ -9,31 +9,40 @@
             <%= form_with url: '/charge', method: :post  do |f| %>
             <div class="row mb-4">
               <div class="col-7">
+                <%=f.hidden_field :pet_id, value: params[:pet_id]%>
                 <div class="form-outline">
-                    <%=f.text_field :number, class: "form-control form-control-lg"%>
+                    <%=f.text_field :number, class: "form-control form-control-lg", placeholder: "Enter 16 digit valid card no.", style: "width:300px"%>
                     <%=f.label :number, "Card_number",class:"form-label"%>
                 </div>
               </div>
               <div class="col-3">
                 <div class="form-outline">
-                    <%=f.text_field :exp_month, class: "form-control form-control-lg"%>
+                    <%=f.text_field :exp_month, class: "form-control form-control-lg", placeholder: "Expiry Month", style: "width:155px"%>
                   <%=f.label :exp_month, "Expire_month",class:"form-label"%>
                 </div>
               </div>
 
               <div class="col-3">
                 <div class="form-outline">
-                    <%=f.text_field :exp_year, class: "form-control form-control-lg"%>
+                    <%=f.text_field :exp_year, class: "form-control form-control-lg", placeholder: "Expiry Year", style: "width:130px"%>
                   <%=f.label :exp_year, "Expire_year",class:"form-label"%>
                 </div>
               </div>
 
               <div class="col-2">
                 <div class="form-outline">
-                    <%=f.text_field :cvc, class:"form-control form-control-lg"%>
+                    <%=f.text_field :cvc, class:"form-control form-control-lg", placeholder: "CVV", style: "width:75px"%>
                     <%=f.label :cvc, class: "form-label" %>
                 </div>
               </div>
+
+              <div class="col-2">
+                <div class="form-outline">
+                    <%=f.text_field :amount_to_be_paid, class:"form-control form-control-lg", placeholder: "Amount", style: "width:105px"%>
+                    <%=f.label :amount, class: "form-label" %>
+                </div>
+              </div>
+              
             </div>
             <%=f.submit "continue", class:"btn btn-info"%>
         </div>
