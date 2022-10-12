@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_11_152218) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_12_141004) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_152218) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "buys", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "pet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_buys_on_pet_id"
+    t.index ["user_id"], name: "index_buys_on_user_id"
+  end
+
   create_table "pets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "petname"
     t.string "food"
@@ -64,6 +73,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_152218) do
     t.bigint "petshop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
+    t.integer "status", default: 0
+    t.string "pet_type"
     t.index ["petshop_id"], name: "index_pets_on_petshop_id"
   end
 
