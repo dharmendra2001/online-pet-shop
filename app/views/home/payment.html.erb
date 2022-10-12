@@ -10,6 +10,7 @@
             <div class="row mb-4">
               <div class="col-7">
                 <%=f.hidden_field :pet_id, value: params[:pet_id]%>
+                <%=f.hidden_field :price, value: params[:price]%>
                 <div class="form-outline">
                     <%=f.text_field :number, class: "form-control form-control-lg", placeholder: "Enter 16 digit valid card no.", style: "width:300px"%>
                     <%=f.label :number, "Card_number",class:"form-label"%>
@@ -36,12 +37,7 @@
                 </div>
               </div>
 
-              <div class="col-2">
-                <div class="form-outline">
-                    <%=f.text_field :amount_to_be_paid, class:"form-control form-control-lg", placeholder: "Amount", style: "width:105px"%>
-                    <%=f.label :amount, class: "form-label" %>
-                </div>
-              </div>
+              
               
             </div>
             <%=f.submit "continue", class:"btn btn-info"%>
