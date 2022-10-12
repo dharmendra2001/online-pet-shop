@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable, :trackable
   
   has_one :petshop
+  has_many :buys
 
   def change_user_to_paid
     update(membership: 1)
