@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_141004) do
     t.bigint "pet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount"
     t.index ["pet_id"], name: "index_buys_on_pet_id"
     t.index ["user_id"], name: "index_buys_on_user_id"
   end
