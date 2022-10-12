@@ -46,8 +46,8 @@ class StripeService
     })
   end
 
-  def sell_pet(user_id, pet_id)
-    @pet = Buy.new(user_id: user_id, pet_id: pet_id) 
+  def sell_pet(user_id, pet_id, amount_to_be_paid)
+    @pet = Buy.new(user_id: user_id, pet_id: pet_id, amount: amount_to_be_paid) 
     a = pet_id.to_i
     @pets = Pet.find(a)
     @pets.update(status: 1)
