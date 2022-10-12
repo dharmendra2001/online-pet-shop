@@ -1,7 +1,10 @@
 
 <% @pet&.each do |p|%>
-  <%=image_tag p.image, style: "width: 200px; display: block;" if p.image.attached?%>
-  Name: <%=link_to p.petname, pet_path(p.id)%><br>
-  <%= link_to "More", pet_path(p.id), class: "btn btn-success"%><hr>
+  <% if p.status == 0%>
+    <%=image_tag p.image, style: "width: 200px; display: block;" if p.image.attached?%>
+    Name: <%=link_to p.petname, pet_path(p.id)%><br>
+    Pet Type: <%=link_to p.pet_type, pet_path(p.id)%><br>
+    <%= link_to "More", pet_path(p.id), class: "btn btn-success"%><hr>
+  <%end%>
 <%end%>
 
