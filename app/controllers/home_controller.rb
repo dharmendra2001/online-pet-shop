@@ -25,7 +25,8 @@ class HomeController < ApplicationController
       card=s.create_stripe_customer_card(token.id,customer)
       s.create_stripe_charge(params[:amount_to_be_paid], customer.id, card.id, pet_name)
       current_user.change_user_to_paid
-      flash[:notice] = "Your card has been paid!"
+      s.sell_pet(current_user.id, params[:pet_id])
+      flash[:notice] = "Your card has been paid!, transaction successful"
       redirect_to root_path(current_user.id)
     else
       redirect_to user_path(current_user.id), alert: "some error occured"
