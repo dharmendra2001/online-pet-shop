@@ -7,6 +7,7 @@
       <th>Food</th>
       <th>Weight</th>
       <th>Image</th>
+      <th>Status</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -18,6 +19,11 @@
         <td><%= i.weight%></td>
         <%if i.image.attached?%>
         <td><%=image_tag i.image, style: "width: 20px; display: block;"%></td>
+        <%end%>
+        <% if i.status == 0%>
+        <td><%= "Available"%></td>
+        <%else%>
+        <td><%= "Not Avaibable"%></td>
         <%end%>
         <td>
           <%= link_to "Delete",pet_path(i.id), data: {turbo_method: :delete ,turbo_confirm: "are you sure"}, class: "btn btn-danger"%>
