@@ -11,7 +11,11 @@
       <tr>
         <td><%= i.name%></td>
         <td><%= i.role%></td>
+        <% if i.petshop&.shopname%>
         <td><%= i.petshop&.shopname%></td>
+        <%else%>
+        <td><%= "No Shop"%></td>
+        <%end%>
       </tr>
     <%end%>
   </tbody>
