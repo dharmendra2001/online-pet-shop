@@ -4,7 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)  
-      if user.admin?
+      if user.role.upcase == "ADMIN" || user.role.upcase == "OWNER"
         can :manage, :all
       else
         can :read, :all
