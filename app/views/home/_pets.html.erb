@@ -1,7 +1,7 @@
 
-<table class="table table-striped table-hover w-50">
+<table class="table table-striped table-hover w-100">
   <thead class="table-dark">
-    <h2>Pet Details</h2>
+    <h2>PET DETAILS</h2>
     <tr class="header">
       <th>Pet Name</th>
       <th>Food</th>
@@ -21,12 +21,16 @@
         <td><%=image_tag i.image, style: "width: 20px; display: block;"%></td>
         <%end%>
         <% if i.status == 0%>
-        <td><%= "Available"%></td>
+        <td class="text-success"><%= "Available"%></td>
         <%else%>
-        <td><%= "Not Avaibable"%></td>
+        <td class="text-danger"><%= "Sold Out"%></td>
         <%end%>
         <td>
-          <%= link_to "Delete",pet_path(i.id), data: {turbo_method: :delete ,turbo_confirm: "are you sure"}, class: "btn btn-danger"%>
+          <% if i.status == 0%>
+            <%= link_to "Delete",pet_path(i.id), data: {turbo_method: :delete ,turbo_confirm: "are you sure"}, class: "btn btn-danger"%>
+          <%else%>
+            <%= "Sold Out"%>
+          <%end%>
         </td>
       </tr>
     <%end%>
