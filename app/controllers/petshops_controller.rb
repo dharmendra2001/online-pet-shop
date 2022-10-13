@@ -30,6 +30,17 @@ class PetshopsController < ApplicationController
     end
   end
 
+  def destroy_method
+    @shop = Petshop.find(params[:id])
+    if @shop.destroy
+      flash[:notice] = "shop successfully deleted!" 
+      redirect_to root_path
+    else
+      flash[:notice] = "something went wrong" 
+      redirect_to new_petshop_path
+    end
+  end
+
   private 
   def petshop_params 
     params.permit(:shopname)
