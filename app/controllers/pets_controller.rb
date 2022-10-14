@@ -15,13 +15,22 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @pet.petshop = current_user.petshop
-    @pet.save
+    if @pet.save
+      flash[:notice] = "pet added successfully in your shop!"
+    else
+      flash[:notice] = @pet.errors.full_messages.join(" , ")
+    end
     redirect_to root_path
+  end
+
+  def medical_certificate 
+    @pet = Pet.find(params[:id])
   end
 
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
+    flash[:notice] = "pet deleted successfully!"
     redirect_to root_path
   end
 
