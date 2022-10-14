@@ -1,15 +1,29 @@
-<div>
-  <%=image_tag @pet.image, style: "width: 200px; display: block;"%>
-  Name: <%=link_to @pet.petname%><br>
-  Pet Type: <%=link_to @pet.pet_type%><br>
-  Price: <%=link_to @pet.price%>$<br>
-  Food: <%= link_to @pet.food%><br>
-  Height: <%= link_to @pet.height%><br>
-  Weight: <%= link_to @pet.weight%><br>
-  Age: <%= link_to @pet.age%><br>
-  Description: <%= link_to @pet.description%><br>
-  Precaution: <%= link_to @pet.precaution%><br>
-  Medical: <%= link_to @pet.medical%><br>
-  Owner: <%= @pet.petshop.user.name%><br>
-  <%= link_to "Buy", payment_path(@pet.id, @pet.price), class: "btn btn-success"%><hr>
+
+<div class="bg-info mx-5 px-5 py-5 w-50">  
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      
+      <%=image_tag @pet.image, style: "width: 400px; height:300px; display: block;"%><br>
+      
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Name: <%=link_to @pet.petname%><br></h5>
+            Pet Type: <%=link_to @pet.pet_type%><br>
+            Price: <%=link_to @pet.price%>$<br>
+            Food: <%= link_to @pet.food%><br>
+            Height: <%= link_to @pet.height%>cm<br>
+            Weight: <%= link_to @pet.weight%>Kg<br>
+            Age: <%= link_to @pet.age%>Month<br>
+            Description: <%= link_to @pet.description%><br>
+            Precaution: <%= link_to @pet.precaution%><br>           
+            Owner: <%= @pet.petshop.user.name%>
+          </div>
+          <% if current_user&.petshop&.pets&.present? %>       
+          <%else%>
+            <%= link_to "Buy", payment_path(@pet.id, @pet.price), class: "btn btn-success"%> 
+          <%end%>
+            <%= link_to "View Medical Certificate", medical_certificate_path(@pet.id), class: "btn btn-danger"%>
+        </div><hr>
+    </div>
+  </div>
 </div>
