@@ -23,9 +23,10 @@ class PetshopsController < ApplicationController
     @shop = Petshop.new(petshop_params)
     @shop.user = current_user
     if @shop.save 
+      flash[:notice] = "Shop created successfully" 
       redirect_to root_path
     else
-      flash[:notice] = "something went wrong"
+      flash[:notice] = @shop.errors.full_messages.join(" , ")
       redirect_to new_petshop_path
     end
   end
