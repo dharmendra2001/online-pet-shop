@@ -4,7 +4,7 @@
     <h2>PET DETAILS</h2>
     <tr class="header">
       <th>Pet Name</th>
-      <th>Food</th>
+      <th>Price</th>
       <th>Weight</th>
       <th>Status</th>
       <th>Action</th>
@@ -14,7 +14,7 @@
     <% current_user.petshop&.pets&.each do |i| %>
       <tr>
         <td><%= i.petname%></td>
-        <td><%= i.food%></td>
+        <td><%= i.price%>$</td>
         <td><%= i.weight%>kg</td>
         <% if i.status == 0%>
         <td class="text-success"><%= "Available"%></td>
