@@ -1,12 +1,11 @@
 
-<table class="table table-striped table-hover w-100">
+<table class="table table-striped table-hover">
   <thead class="table-dark">
     <h2>PET DETAILS</h2>
     <tr class="header">
       <th>Pet Name</th>
       <th>Food</th>
       <th>Weight</th>
-      <th>Image</th>
       <th>Status</th>
       <th>Action</th>
     </tr>
@@ -16,10 +15,7 @@
       <tr>
         <td><%= i.petname%></td>
         <td><%= i.food%></td>
-        <td><%= i.weight%></td>
-        <%if i.image.attached?%>
-        <td><%=image_tag i.image, style: "width: 20px; display: block;"%></td>
-        <%end%>
+        <td><%= i.weight%>kg</td>
         <% if i.status == 0%>
         <td class="text-success"><%= "Available"%></td>
         <%else%>
@@ -31,6 +27,7 @@
           <%else%>
             <%= "Sold Out"%>
           <%end%>
+          <%= link_to "Medical", medical_certificate_path(i.id), class: "btn btn-danger"%>
         </td>
       </tr>
     <%end%>
