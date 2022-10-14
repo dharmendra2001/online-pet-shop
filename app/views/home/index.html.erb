@@ -1,21 +1,33 @@
 <%= flash[:note]%>
 <% if user_signed_in?%>
   <% if current_user.role.upcase == "ADMIN"%>
-    <%= render "home/users", locals: {current_user: @current_user}%>
-    <%= render "home/pets", locals: {current_user: @current_user}%>
-    <%= link_to "Add pet", new_pet_path, class: "btn btn-success"%>
-    <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
-    <%= link_to "Show Buy Pet", buy_pet_path(current_user.id), class: "btn btn-primary"%>
-  <%elsif%>
-    <% if current_user.role.upcase == "OWNER"%>
-      <h1>welcome owner <%= current_user.name%></h1>
-      <h2>Shop name: <%= current_user.petshop&.shopname%></h2>
-      <%= render "home/pets", locals: {current_user: @current_user}%>
+    <div>
       <%= link_to "Add pet", new_pet_path, class: "btn btn-success"%>
       <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
+      <%= link_to "Your Cart", buy_pet_path(current_user.id), class: "btn btn-primary"%>
+    </div>
+    <div class="container">
+      <div class="row W-100">
+         <div class="col-5">
+          <%= render "home/pets", locals: {current_user: @current_user}%>        
+         </div>
+         <div class="col-5">
+          <%= render "home/users", locals: {current_user: @current_user}%>
+         </div>
+      </div>      
+    </div>
+  <%elsif%>
+    <% if current_user.role.upcase == "OWNER"%>
+      <h5>welcome owner <%= current_user.name%></h5>
+      <h6>Shop name: <%= current_user.petshop&.shopname%></h6>
+      <%= link_to "Add pet", new_pet_path, class: "btn btn-success"%>
+      <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
+      <%= link_to "Your Cart", buy_pet_path(current_user.id), class: "btn btn-primary"%>
+      <%= render "home/pets", locals: {current_user: @current_user}%>
     <%end%>
-  <%else%>
-    <%= render "petshops/allpets", locals: {shop: @shop}%>
+  <%else%>   
+    <p class="fa-solid fa-cart-shopping btn-primary"><%= link_to "Your Cart", buy_pet_path(current_user.id), class: "btn btn-primary"%></p>
+    <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
   <%end%>
 <%else%>
   <%= render "petshops/allpets", locals: {shop: @shop}%>
