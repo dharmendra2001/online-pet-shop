@@ -1,15 +1,31 @@
-<div>
-  <%current_user.buys.all.each do |buy|%>
-    <%=image_tag buy.pet.image, style: "width: 200px; display: block;"%><br>
-    Name: <%=link_to buy.pet.petname%><br>
-    Pet Type: <%=link_to buy.pet.pet_type%><br>
-    Price: <%=link_to buy.pet.price%>$<br>
-    Food: <%= link_to buy.pet.food%><br>
-    Height: <%= link_to buy.pet.height%><br>
-    Weight: <%= link_to buy.pet.weight%><br>
-    Age: <%= link_to buy.pet.age%><br>
-    Description: <%= link_to buy.pet.description%><br>
-    Precaution: <%= link_to buy.pet.precaution%><br>
-    Medical: <%= link_to buy.pet.medical%><br>
-  <%end%>
-</div><hr>
+<div class="bg-info mx-5 px-5 py-5">  
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <%if current_user.buys.present?%>
+        <h1 class="text-center">YOUR PURCHASED PET</h1>
+       <%current_user.buys.all.each do |buy|%> 
+         <div class="col-md-4">
+           <%=image_tag buy.pet.image, style: "width: 200px; display: block;"%><br>
+         </div>
+         <div class="col-md-8">
+           <div class="card-body">
+              <h5 class="card-title">Name: <%=link_to buy.pet.petname%><br></h5>
+              Pet Type: <%=link_to buy.pet.pet_type%><br>
+              Price: <%=link_to buy.pet.price%>$<br>
+              Food: <%= link_to buy.pet.food%><br>
+              Height: <%= link_to buy.pet.height%>cm<br>
+              Weight: <%= link_to buy.pet.weight%>Kg<br>
+              Age: <%= link_to buy.pet.age%>Month<br>
+              Description: <%= link_to buy.pet.description%><br>
+              Precaution: <%= link_to buy.pet.precaution%><br>
+            </div>
+          </div> <hr>
+        <%end%>
+      <%else%>
+          <div class="w-100">
+            <center><%= image_tag "img.png", height: "400", width: "500", alt: "logo"%></i></center>
+          </div>
+      <%end%>
+    </div>
+  </div>
+</div>
