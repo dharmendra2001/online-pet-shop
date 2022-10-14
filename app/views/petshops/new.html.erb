@@ -3,21 +3,19 @@
 
 <br>
 <div class="col-lg-6 mx-lg-auto card shadow mt-5">
-
   <div class="card-header">
     <h3 class="card-title text-center">Create your Petshop</h3>
-    </div>
+  </div>
   <div class="card-body">
-    <%=notice%>
-<%= form_with do |form| %>
-  <div class="form-group mb-2">
-    <%= form.label :shopname %><br>
-    <%= form.text_field :shopname, placeholder: "Enter your shop name" ,class: "form-control form-control-lg"  %>
-  </div>
-  <div>
+    <%= form_with do |form| %>
+      <div class="form-group mb-2">
+        <%= form.label :shopname %><br>
+        <%= form.text_field :shopname, placeholder: "Enter your shop name" ,class: "form-control form-control-lg"  %>
+      </div>
+    <div>
     <%= form.submit "Submit", class: "btn btn-primary btn-lg"  %>
-  </div>
-<% end %>
+    </div>
+    <% end %>
   </div>
 </div>
 
