@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
     flash[:alert] = 'Could not find payment information'    
     redirect_to root_path
   end
+  
+  rescue_from CanCan::AccessDenied do
+    flash[:alert] = 'You are not allowed to perform this action'    
+    redirect_to root_path
+  end
 end
