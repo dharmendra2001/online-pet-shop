@@ -18,7 +18,7 @@
             Precaution: <%= link_to @pet.precaution%><br>           
             Owner: <%= @pet.petshop.user.name%>
           </div>
-          <% if current_user&.petshop&.pets&.present? %>       
+          <% if current_user&.petshop == @pet.petshop %>       
           <%else%>
             <%= link_to "Buy", payment_path(@pet.id, @pet.price), class: "btn btn-success"%> 
           <%end%>

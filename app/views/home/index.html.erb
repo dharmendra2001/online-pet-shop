@@ -2,7 +2,9 @@
 <% if user_signed_in?%>
   <% if current_user.role.upcase == "ADMIN"%>
     <div>
+      <% if current_user.petshop.present?%>
       <%= link_to "Add pet", new_pet_path, class: "btn btn-success"%>
+      <%end%>
       <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
       <%= link_to "Your Cart", buy_pet_path(current_user.id), class: "btn btn-primary"%>
     </div>
@@ -20,7 +22,9 @@
     <% if current_user.role.upcase == "OWNER"%>
       <h5>welcome owner <%= current_user.name%></h5>
       <h6>Shop name: <%= current_user.petshop&.shopname%></h6>
+      <% if current_user.petshop.present?%>
       <%= link_to "Add pet", new_pet_path, class: "btn btn-success"%>
+      <%end%>
       <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
       <%= link_to "Your Cart", buy_pet_path(current_user.id), class: "btn btn-primary"%>
       <%= render "home/pets", locals: {current_user: @current_user}%>
