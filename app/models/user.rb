@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_one :petshop
   has_many :buys
+  validates :name, presence: true
 
   def change_user_to_paid
     update(membership: 1)
