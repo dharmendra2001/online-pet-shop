@@ -25,9 +25,15 @@
         </li>
         <% if user_signed_in?%>
           <% if current_user.role.upcase == 'ADMIN' || current_user.role.upcase == 'OWNER'%>
-            <li class="nav-item">
-              <%= link_to "CREATE SHOP", petshops_new_path, class: "nav-link active btn btn-info btn-sm px-3 mx-5"%>
-            </li>
+            <% if current_user.petshop.present?%>
+              <li class="nav-item">
+                <%= link_to "DELETE SHOP", destroy_method_path(current_user.petshop.id), data: {turbo_method: :delete ,turbo_confirm: "are you want delete your petshop?"}, class: "nav-link active btn btn-danger btn-sm px-3 mx-5"%>
+              </li>
+            <%else%>
+              <li class="nav-item">
+                <%= link_to "CREATE SHOP", petshops_new_path, class: "nav-link active btn btn-info btn-sm px-3 mx-5"%>
+              </li>
+            <%end%>
           <%end%>
           <%= button_to current_user.name.upcase%>  
         <%end%>
