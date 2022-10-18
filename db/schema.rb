@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_12_141004) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_18_201826) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -64,9 +64,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_141004) do
   create_table "pets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "petname"
     t.string "food"
-    t.integer "weight"
-    t.integer "height"
-    t.integer "age"
+    t.string "weight"
+    t.string "height"
+    t.string "age"
     t.string "description"
     t.string "precaution"
     t.string "image"
