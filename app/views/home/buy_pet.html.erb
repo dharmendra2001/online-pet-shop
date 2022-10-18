@@ -19,6 +19,7 @@
               Description: <%= link_to buy.pet.description%><br>
               Precaution: <%= link_to buy.pet.precaution%><br>
             </div>
+            <%= link_to "View Medical Certificate", medical_certificate_path(buy.pet.id), class: "btn btn-danger"%>
           </div> <hr>
         <%end%>
       <%else%>
