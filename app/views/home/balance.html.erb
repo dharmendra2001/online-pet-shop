@@ -1,1 +1,9 @@
-<%= @users.amount%>
+<style>
+</style>
+<div class="card text-white bg-secondary mb-3 container" style="max-width: 18rem;">
+  <div class="card-header"><i class="fa-solid fa-sack-dollar"></i> amount</div>
+  <div class="card-body">
+    <h5 class="card-title"><i class="fa-solid fa-wallet"></i>  <%= @users.amount%>$</h5>
+    <%= link_to "Back", root_path, class: "btn btn-success"%>
+  </div>
+</div>
