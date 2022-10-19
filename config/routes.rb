@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get 'buy_pet', to: "home#buy_pet", as: "buy_pet" 
   get 'medical_certificate/:id', to: "pets#medical_certificate", as: "medical_certificate"
   delete 'destroy_method/:id', to: 'petshops#destroy_method', as: "destroy_method"
+  delete 'user_destroy/:id', to: 'home#user_destroy', as: "user_destroy"
 
 end
