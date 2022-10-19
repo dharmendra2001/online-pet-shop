@@ -7,7 +7,8 @@ class Ability
       if user.role.upcase == "ADMIN" || user.role.upcase == "OWNER"
         can :manage, :all
       else
-        can :read, :all
+        can :read, User, id: user.id
       end
+     
   end
 end
