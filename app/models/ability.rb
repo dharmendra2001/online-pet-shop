@@ -9,6 +9,6 @@ class Ability
       else
         can :read, User, id: user.id
       end
-     
+      cannot :customize, :all if user.role.upcase == "OWNER"
   end
 end
