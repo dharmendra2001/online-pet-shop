@@ -7,6 +7,7 @@
       <%end%>
       <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
       <%= link_to "Your Cart", buy_pet_path(current_user.id), class: "btn btn-primary"%>
+      <%= link_to "Profile", home_path(current_user.id), class: "btn btn-danger"%>
     </div>
     <div class="container">
       <div class="row W-100">
@@ -27,11 +28,13 @@
       <%end%>
       <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
       <%= link_to "Your Cart", buy_pet_path(current_user.id), class: "btn btn-primary"%>
+      <%= link_to "Profile", home_path(current_user.id), class: "btn btn-danger"%>
       <%= render "home/pets", locals: {current_user: @current_user}%>
     <%end%>
   <%else%>   
     <p class="fa-solid fa-cart-shopping btn-primary"><%= link_to "Your Cart", buy_pet_path(current_user.id), class: "btn btn-primary"%></p>
     <%= link_to "Shop now", petshops_path, class: "btn btn-danger"%>
+    <%= link_to "Profile", home_path(current_user.id), class: "btn btn-danger"%>
   <%end%>
 <%else%>
   <%= render "petshops/allpets", locals: {shop: @shop}%>
