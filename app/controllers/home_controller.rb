@@ -19,6 +19,10 @@ class HomeController < ApplicationController
   def buy_pet 
   end
 
+  def balance
+    @users = User.find(params[:id])
+  end
+  
   def user_destroy
     @user = User.find(params[:id])
     if @user.destroy
