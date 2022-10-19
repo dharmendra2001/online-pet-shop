@@ -21,6 +21,7 @@ class HomeController < ApplicationController
 
   def balance
     @users = User.find(params[:id])
+    authorize! :read, @users 
   end
   
   def user_destroy
