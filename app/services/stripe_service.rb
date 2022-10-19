@@ -50,6 +50,9 @@ class StripeService
     @pet = Buy.new(user_id: user_id, pet_id: pet_id, amount: amount_to_be_paid) 
     a = pet_id.to_i
     @pets = Pet.find(a)
+    @user = @pets.petshop.user
+    balance = @user.amount
+    @user.update(amount: amount_to_be_paid.to_i+balance.to_i)
     @pets.update(status: 1)
     @pet.save  
   end
