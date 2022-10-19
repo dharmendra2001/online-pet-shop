@@ -18,6 +18,17 @@ class HomeController < ApplicationController
   def buy_pet 
   end
 
+  def user_destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "user successfully deleted!" 
+      redirect_to root_path
+    else
+      flash[:notice] = "something went wrong" 
+      redirect_to user_destroy_path
+    end
+  end
+
   def charge
     pet_name = Pet.find_by(id: params[:pet_id]).petname
     check = true
