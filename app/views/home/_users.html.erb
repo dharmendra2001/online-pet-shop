@@ -5,17 +5,21 @@
       <th><i class="fa-solid fa-users"></i>Name</th>
       <th>Role</th>
       <th><i class="fa-sharp fa-solid fa-shop"></i>Shop name</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |i| %>
       <tr>
-        <td><%= i.name%></td>
-        <td><%= i.role%></td>
-        <% if i.petshop&.shopname%>
-        <td><%= i.petshop&.shopname%></td>
-        <%else%>
-        <td><%= "No Shop"%></td>
+        <% if i.role.upcase == "OWNER" || i.role.upcase == "CLIENT"%>
+          <td><%= i.name%></td>
+          <td><%= i.role%></td>
+          <% if i.petshop&.shopname%>
+            <td><%= i.petshop&.shopname%></td>
+          <%else%>
+            <td><%= "No Shop"%></td>
+          <%end%>
+          <td><%= link_to "Delete",user_destroy_path(i.id), data: {turbo_method: :delete ,turbo_confirm: "are you sure"}, class: "btn btn-danger"%></td>
         <%end%>
       </tr>
     <%end%>
