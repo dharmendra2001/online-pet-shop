@@ -8,8 +8,10 @@ class HomeController < ApplicationController
 
   end
 
-  def show   
+  def show
+      
     @users = User.find(params[:id])
+    raise CanCan::AccessDenied if (can? :manage, :all) && !(@users.role.downcase == 'admin')
     raise CanCan::AccessDenied if User.where(id: @users.id).accessible_by(current_ability).empty?
   end
 
@@ -21,6 +23,7 @@ class HomeController < ApplicationController
 
   def balance
     @users = User.find(params[:id])
+    raise CanCan::AccessDenied if (can? :manage, :all) && !(@users.role.downcase == 'admin')
     authorize! :read, @users 
   end
   
