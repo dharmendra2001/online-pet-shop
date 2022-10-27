@@ -26,7 +26,8 @@
 !/tmp/storage/.keep
 /vendor/*
 /public/assets
-
+/spec
+.rspec
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 .env
